@@ -1,0 +1,41 @@
+<html lang="en">
+    <head>
+        <link rel="stylesheet" href="{{ url_for('static', filename='css/mystyle.css') }}">
+
+        <title>Tower Service</title>
+    </head>
+    <body>
+
+        <div class="center">
+            <h1>Tower Service</h1>
+        </div>
+        
+        <ul>
+            <li><a href="/">Home</a></li>
+            <li><a href="/add">Add</a></li>
+            <li><a href="/delete">Delete</a></li>
+            <li><a href="/update">Update</a></li>
+            <li><a href="/searchDimensions">Search Dimensions</a></li>
+        </ul>
+
+        <form action="/" method="POST" class="my-form">
+            <div class="form-group">
+                <label for="towerId">Tower Id</label>
+                <input type="text" name="towerId" required>
+                <input type="submit" value="Search Tower">
+            </div>
+        </form>
+
+        {% with messages = get_flashed_messages() %}
+            {% if messages %}
+                <div class="center">
+                    {% for message in messages %}
+                        <p>{{ message }}</p>
+                    {% endfor %}
+                </div>
+            {% endif %}
+        {% endwith %}
+       
+        
+    </body>
+</html>

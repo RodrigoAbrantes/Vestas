@@ -1,0 +1,49 @@
+<html lang="en">
+    <head>
+        <title>Tower Service</title>
+        <link rel="stylesheet" href="{{ url_for('static', filename='css/mystyle.css') }}">
+    </head>
+    <body>
+        <div class="center">
+            <h1>Tower Service</h1>
+        </div>
+        
+        <ul>
+            <li><a href="/">Home</a></li>
+            <li><a href="/add">Add</a></li>
+            <li><a href="/delete">Delete</a></li>
+            <li><a href="/update">Update</a></li>
+            <li><a href="/searchDimensions">Search Dimensions</a></li>
+        </ul>
+
+        <form action="/update" method="POST" class="my-form-horizontal">
+            <div class="form-group-horizontal">
+                <label for="towerId">Tower Id</label>
+                <input type="text" name="towerId" required>
+                <label for="shellId">Shell Id</label>
+                <input type="text" name="shellId" required>
+                <label for="properties">Properties</label>
+                <select id="property" name="property">
+                    <option value="height">Height</option>
+                    <option value="thickness">Thickness</option>
+                    <option value="density">Steel Density</option>
+                </select>
+                <label for="value">Value</label>
+                <input type="text" name="propertyValue" required>
+                <input type="submit" value="Update Tower">
+            </div>
+        </form>
+
+        {% with messages = get_flashed_messages() %}
+            {% if messages %}
+                <div class="center">
+                    {% for message in messages %}
+                        <p>{{ message }}</p>
+                    {% endfor %}
+                </div>
+            {% endif %}
+        {% endwith %}
+
+
+    </body>
+</html>

@@ -1,0 +1,72 @@
+<html lang="en">
+    <head>
+        <title>Tower Service</title>
+        <link rel="stylesheet" href="{{ url_for('static', filename='css/mystyle.css') }}">
+    </head>
+    <body>
+        <div class="center">
+            <h1>Tower Service</h1>
+        </div>
+        
+        <ul>
+            <li><a href="/">Home</a></li>
+            <li><a href="/add">Add</a></li>
+            <li><a href="/delete">Delete</a></li>
+            <li><a href="/update">Update</a></li>
+            <li><a href="/searchDimensions">Search Dimensions</a></li>
+        </ul>
+
+        <br>
+        
+        <div class="table-container">
+            <table class="center styled-table">
+                <th colspan=2>Tower Section {{tower_id}}</th>
+                    <tr>
+                        <td>Tower Height</td>
+                        <td>{{tower_height}}</td>
+                    </tr>
+                    <tr>
+                        <td>Tower Size</td>
+                        <td>{{tower_size}}</td>
+                    </tr>
+            </table>
+        </div>
+
+        <br>
+        <br>
+
+        <div class="grid-container">
+        {% for shell in tower_data %}
+            <div class="grid-item table-container">
+                <table class="center styled-table">
+                    <th colspan=2>Shell nº{{shell[1]}}</th>
+                    <tr>
+                        <td>Position</td>
+                        <td>{{shell[1]}}</td>
+                    </tr>
+                    <tr>
+                        <td>Height</td>
+                        <td>{{shell[2]}}</td>
+                    </tr>
+                    <tr>
+                        <td>Bottom Diameter</td>
+                        <td>{{shell[3]}}</td>
+                    </tr>
+                    <tr>
+                        <td>Top Diameter</td>
+                        <td>{{shell[4]}}</td>
+                    </tr>
+                    <tr>
+                        <td>Thickness</td>
+                        <td>{{shell[5]}}</td>
+                    </tr>
+                    <tr>
+                        <td>Steel Density</td>
+                        <td>{{shell[6]}}</td>
+                    </tr>
+                </table>
+            </div>
+        {% endfor %}
+        </div>
+    </body>
+</html>

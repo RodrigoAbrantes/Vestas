@@ -1,0 +1,60 @@
+<html lang="en">
+    <head>
+        <title>Tower Service</title>
+        <link rel="stylesheet" href="{{ url_for('static', filename='css/mystyle.css') }}">
+    </head>
+    <body>
+        <div class="center">
+            <h1>Tower Service</h1>
+        </div>
+        
+        <ul>
+            <li><a href="/">Home</a></li>
+            <li><a href="/add">Add</a></li>
+            <li><a href="/delete">Delete</a></li>
+            <li><a href="/update">Update</a></li>
+            <li><a href="/searchDimensions">Search Dimensions</a></li>
+        </ul>
+
+        <br>
+
+        {% with messages = get_flashed_messages() %}
+            {% if messages %}
+                <div class="center">
+                    {% for message in messages %}
+                        <p>{{ message }}</p>
+                    {% endfor %}
+                </div>
+            {% endif %}
+        {% endwith %}
+
+        <form action="/searchDimensions" method="POST" class="my-form-horizontal">
+            <div class="form-group-horizontal">
+                <label for="bottomDiameterMin">Bottom Diameter Minimum</label>
+                <input type="text" name="bottomDiameterMin" required>
+                <label for="bottomDiameteMaxr">Bottom Diameter Maximum</label>
+                <input type="text" name="bottomDiameterMax" required>
+                <label for="topDiameterMin">Top Diameter Minimum</label>
+                <input type="text" name="topDiameterMin" required>
+                <label for="topDiameterMax">Top Diameter Maximum</label>
+                <input type="text" name="topDiameterMax" required>
+                <input type="submit" value="Search">
+            </div>
+        </form>
+
+        <div class="grid-container">
+        {% for tower in towers %}
+            <div class="grid-item" style="background-color:#ccc7c7;">
+                <a href={{"tower/%s" %tower[0]}} style="display:block;background-color:#ccc7c7;">
+                    <div>
+                        <p>Tower nº {{tower[0]}}</p>
+                        <p>Nº of shells: {{tower[3]}}</p>
+                        <p>Bottom Diameter: {{tower[1]}}</p>
+                        <p>Top Diameter: {{tower[2]}}</p>
+                    </div>
+                </a>
+            </div>
+        {% endfor %}
+        </div>
+    </body>
+</html>
