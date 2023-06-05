@@ -1,0 +1,111 @@
+.center {
+    text-align: center;
+}
+
+ul {
+    list-style-type: none;
+    margin: 0 300px;
+    padding: 0;
+    overflow: hidden;
+    background-color: #333;
+    display: flex;
+    justify-content: space-between;
+  }
+
+li {
+    float: left;
+}
+  
+li a {
+    display: block;
+    color: white;
+    text-align: center;
+    padding: 14px 16px;
+    text-decoration: none;
+}
+  
+  /* Change the link color to #111 (black) on hover */
+li a:hover {
+    background-color: #111;
+}
+
+.my-form {
+display: flex;
+justify-content: center;
+align-items: center;
+height: 35vh;
+}
+
+.form-group {
+display: flex;
+flex-direction: column;
+align-items: center;
+}
+
+.form-group label,
+.form-group textarea,
+.form-group input,
+.form-group select,
+.form-group button {
+margin: 10px;
+}
+
+.my-form-horizontal {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 15vh;
+}
+
+.form-group-horizontal {
+    align-items: center;
+    
+}
+
+.form-group-horizontal input,
+.form-group-horizontal select,
+.form-group-horizontal button {
+    margin-right: 10px;
+}
+
+.grid-container {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    grid-gap: 10px;
+    width: 63%;
+    margin: 0 auto;
+}
+
+.grid-item {
+
+    padding: 10px;
+    text-align: center;
+    margin: 20px;
+}
+
+a {
+    color: inherit;
+    text-decoration: none;
+}
+
+.table-container {
+    display: flex;
+    justify-content: center;
+  }
+
+  .styled-table {
+    border-collapse: collapse;
+  }
+  
+  .styled-table th {
+    background-color: #333;
+    padding: 10px;
+    border: 1px solid #ffffff;
+    color: white;
+  }
+  
+  .styled-table tbody td {
+    background-color: #ccc7c7;
+    padding: 10px;
+    border: 1px solid #ffffff;
+  }
