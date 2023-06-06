@@ -39,6 +39,7 @@ def tower(tower_id):
     db_cursor.execute(f"SELECT * FROM shell where \
                       shell.shell_tower_id = {tower_id}\
                           ORDER BY shell.position")
+    
     data = db_cursor.fetchall()
 
     if len(data) < 1:
@@ -73,6 +74,7 @@ def add_tower():
     tower_shells = []
     for index, shell in enumerate(form_info.split(";")):
         shell_properties = shell.split(",")
+        # checks if correct number of input values were provided
         if len(shell_properties) == 6:
             tower_shells.append(list(map(float, shell_properties)))
         elif len(shell) == 0:
@@ -126,18 +128,23 @@ def validate_numeric_values_of_shell(shell_properties):
     height = shell_properties[1]
     bottom_diameter = shell_properties[2]
     top_diameter = shell_properties[3]
+    thickness = shell_properties[4]
+    steel_density = shell_properties[5]
+    
     if height <= 0:
-        flash('Negative shell height!')
-        return False
-    if top_diameter > bottom_diameter:
-        flash(f'Top diameter is bigger than bottom diameter\
-            on shell {shell_properties[0]}!')
+        flash('Invalid shell height!')
         return False
     if bottom_diameter <= 0:
-        flash('Negative bottom diameter!')
+        flash('Invalid bottom diameter!')
         return False
     if top_diameter <= 0:
-        flash('Negative top diameter!')
+        flash('Invalid top diameter!')
+        return False
+    if thickness <= 0:
+        flash('Invalid top diameter!')
+        return False
+    if steel_density <= 0:
+        flash('Invalid top diameter!')
         return False
     return True
 
